@@ -47,10 +47,13 @@
     <Compile Include="ConsoleLogWritter.cs" />
     <Compile Include="FileLogWritter.cs" />
     <Compile Include="ILogger.cs" />
+    <Compile Include="IScecurePolicy.cs" />
+    <Compile Include="LogWritter.cs" />
     <Compile Include="Pathfinder.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SecureConsoleLogWritter.cs" />
+    <Compile Include="SecureOnlyFriday.cs" />
+    <Compile Include="SecureSimple.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".editorconfig" />

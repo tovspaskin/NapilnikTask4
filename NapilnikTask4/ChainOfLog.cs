@@ -17,17 +17,12 @@ namespace NapilnikTask4
             return new ChainOfLog(loggers);
         }
 
-        public Result WriteError(string message)
+        public void WriteError(string message)
         {
             foreach (ILogger logger in _loggers)
             {
-                Result result = logger.WriteError(message);
-                if (result != Result.success)
-                {
-                    return Result.error;
-                }
+                logger.WriteError(message);
             }
-            return Result.success;
         }
 
     }

@@ -1,23 +1,14 @@
 ﻿namespace NapilnikTask4
 {
-    public enum Result
-    {
-        success,
-        error,
-    }
-
     internal class Program
     {
         private static void Main()
         {
             Pathfinder pathfinderFlie = new Pathfinder(new FileLogWritter());
             Pathfinder pathfinderConsole = new Pathfinder(new ConsoleLogWritter());
-
-            ILogger loggerSecureFile = ChainOfLog.Create(new SecureConsoleLogWritter(), new FileLogWritter());
-            Pathfinder pathfinderFlieOnFriday = new Pathfinder(loggerSecureFile);
-            ILogger loggerSecureConsole = ChainOfLog.Create(new SecureConsoleLogWritter(), new ConsoleLogWritter());
-            Pathfinder pathfinderConsoleOnFriday = new Pathfinder(loggerSecureConsole);
-            ILogger loggerConsoleSecureFile = ChainOfLog.Create(new ConsoleLogWritter(), new SecureConsoleLogWritter(), new FileLogWritter());
+            Pathfinder pathfinderFlieOnFriday = new Pathfinder(new FileLogWritter(new SecureOnlyFriday()));
+            Pathfinder pathfinderConsoleOnFriday = new Pathfinder(new ConsoleLogWritter(new SecureOnlyFriday()));
+            ILogger loggerConsoleSecureFile = ChainOfLog.Create(new ConsoleLogWritter(), new FileLogWritter(new SecureOnlyFriday()));
             Pathfinder pathfinderConsoleAndFlieOnFriday = new Pathfinder(loggerConsoleSecureFile);
         }
     }

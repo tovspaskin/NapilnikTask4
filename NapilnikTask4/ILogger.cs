@@ -2,6 +2,6 @@
 {
     public interface ILogger
     {
-        Result WriteError(string messabge);
+        void WriteError(string message);
     }
 }

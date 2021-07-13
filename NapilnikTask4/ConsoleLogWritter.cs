@@ -2,12 +2,16 @@
 
 namespace NapilnikTask4
 {
-    internal class ConsoleLogWritter : ILogger
+    internal class ConsoleLogWritter : LogWritter, ILogger
     {
-        public Result WriteError(string message)
+        public ConsoleLogWritter(ISecurePolicy scecurePolicy = null)
+            : base(scecurePolicy)
+        {
+        }
+
+        public override void Write(string message)
         {
             Console.WriteLine(message);
-            return Result.success;
         }
     }
 }
