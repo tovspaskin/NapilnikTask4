@@ -2,12 +2,12 @@
 
 namespace NapilnikTask4
 {
-    internal class ConsoleLogWritter : ILogStrategy
+    internal class ConsoleLogWritter : ILogger
     {
-        public bool WriteError(string message)
+        public Result WriteError(string message)
         {
             Console.WriteLine(message);
-            return true;
+            return Result.success;
         }
     }
 }

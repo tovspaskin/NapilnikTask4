@@ -3,11 +3,18 @@ using System.IO;
 
 namespace NapilnikTask4
 {
-    internal class SecureConsoleLogWritter : ILogStrategy
+    internal class SecureConsoleLogWritter : ILogger
     {
-        public bool WriteError(string message)
+        public Result WriteError(string message)
         {
-            return DateTime.Now.DayOfWeek == DayOfWeek.Friday;
+            if (DateTime.Now.DayOfWeek == DayOfWeek.Friday)
+            {
+                return Result.success;
+            }
+            else
+            {
+                return Result.error;
+            }
         }
     }
 }
