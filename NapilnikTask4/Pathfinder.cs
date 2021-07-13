@@ -17,11 +17,11 @@ namespace NapilnikTask4
         {
             if (File.Exists(path))
             {
-                _logger.WriteError(FindSuccess);
+                _logger.Write(FindSuccess);
             }
             else
             {
-               _logger.WriteError(NotFindError);
+               _logger.Write(NotFindError);
             }
         }
     }

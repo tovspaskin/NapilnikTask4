@@ -46,6 +46,8 @@
     <Compile Include="ConsoleLogWritter.cs" />
     <Compile Include="FileLogWritter.cs" />
     <Compile Include="ILogger.cs" />
+    <Compile Include="ILogStrategy.cs" />
+    <Compile Include="Log.cs" />
     <Compile Include="Pathfinder.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

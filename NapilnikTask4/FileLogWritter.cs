@@ -2,23 +2,12 @@
 
 namespace NapilnikTask4
 {
-    internal class FileLogWritter : ILogger
+    internal class FileLogWritter : ILogStrategy
     {
-        private readonly ILogger _logger;
-
-        public FileLogWritter()
-        {
-        }
-
-        public FileLogWritter(ILogger logger)
-        {
-            _logger = logger;
-        }
-
-        public void WriteError(string message)
+        public bool WriteError(string message)
         {
             File.WriteAllText("log.txt", message);
-            _logger?.WriteError(message);
+            return true;
         }
     }
 }
